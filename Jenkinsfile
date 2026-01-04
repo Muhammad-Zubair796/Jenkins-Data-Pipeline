@@ -1,16 +1,13 @@
 pipeline {
-    agent any
-
-    stages {
-        stage('Checkout') {
-            steps {
-                echo 'Checking out code from GitHub...'
-                checkout scm
-            }
+    agent {
+        docker {
+            image 'python:3.9-slim' 
         }
-        stage('Build & Test') {
+    }
+    stages {
+        stage('Data Processing') {
             steps {
-                echo 'Running Data Cleaning Script...'
+                echo 'Running script inside a Python Docker Container...'
                 sh 'python3 data_process.py'
             }
         }
