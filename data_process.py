@@ -15,7 +15,7 @@ def clean_data():
             sys.exit(1) # This tells Jenkins the script FAILED
             
     print(f"Cleaned Data: {cleaned}")
-    print("--- Data Validation Passed! ---")
+    print("--- Data Validation Passed!!! ---")
 
 if __name__ == "__main__":
     clean_data()
