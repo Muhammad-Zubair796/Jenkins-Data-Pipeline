@@ -1,7 +1,11 @@
+import os
 import sys
 
 def clean_data():
-    print("--- Starting Data Cleaning Process ---")
+    # Get the environment name from Jenkins
+    env_name = os.getenv("APP_ENV", "Unknown")
+    
+    print(f"--- Starting Data Cleaning Process in {env_name} environment ---")
     data = ["  messy_data  ", "NLP_MODEL_v1", "  2026_records  "]
     cleaned = [item.strip().lower() for item in data]
     print(f"Original: {data}")
